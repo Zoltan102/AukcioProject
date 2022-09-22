@@ -77,9 +77,13 @@ public class Festmeny {
 
     @Override
     public String toString() {
-        if (elkelt = true) {
-            return String.format("%s: %s (%s)\nelkelt\n%d $ - %t (összesen: %d db)", festo, cim, stilus, legmagasabbLicit, legutolsoLicitIdeje, licitekSzama);
+        if (elkelt = false) {
+            return String.format("%s: %s (%s)\nelkelt\n%d $ - %tF (összesen: %d db)\n2",
+                    festo, cim, stilus, legmagasabbLicit, legutolsoLicitIdeje, licitekSzama);
+        } else{
+            return String.format("%s: %s (%s)\n%d $ - %tF (összesen: %d db)\n",
+                    festo, cim, stilus, legmagasabbLicit, legutolsoLicitIdeje, licitekSzama);
         }
-        return String.format("%s: %s (%s)\n%d $ - %t (összesen: %d db)", festo, cim, stilus, legmagasabbLicit, legutolsoLicitIdeje, licitekSzama);
+
     }
 }
