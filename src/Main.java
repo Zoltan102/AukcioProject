@@ -18,6 +18,9 @@ public class Main {
         }catch (IOException e){
             System.err.println("Hiba történt a fájl beolvasása közben!");
         }
+        for (Festmeny f : festmenyek) {
+            System.out.println(f);
+        }
     }
     public static List<Festmeny> felhasznaloBevitel(){
         List<Festmeny> festmenyek = new LinkedList<>();
@@ -39,7 +42,7 @@ public class Main {
         festmenyek = new LinkedList<>();
         BufferedReader br = new BufferedReader(fr);
         String sor = br.readLine();
-        while(sor != null && sor.equals("")){
+        while(sor != null){
             String[] splitted = sor.split(";");
             Festmeny f = new Festmeny(splitted[1], splitted[0], splitted[2]);
             festmenyek.add(f);
