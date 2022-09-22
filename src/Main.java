@@ -9,7 +9,7 @@ public class Main {
     private static List<Festmeny> festmenyek;
 
     public static void main(String[] args) {
-        System.out.println(felhasznaloBevitel());
+        //System.out.println(felhasznaloBevitel());
         try {
             readInFile();
         } catch (FileNotFoundException e) {
@@ -17,6 +17,7 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Hiba történt a fájl beolvasása közben!");
         }
+        randomLicit();
         for (Festmeny f : festmenyek) {
             System.out.println(f);
         }
@@ -35,7 +36,6 @@ public class Main {
             Festmeny f = new Festmeny(splited[0], splited[1], splited[2]);
             festmenyek.add(f);
         }
-        randomLicit();
         return festmenyek;
     }
 
@@ -57,7 +57,7 @@ public class Main {
     public static void randomLicit() {
         Random rnd = new Random();
         for (int i = 0; i < 20; i++) {
-            festmenyek.get(rnd.nextInt(festmenyek.size())).licit(rnd.nextInt(91) + 10);
+            festmenyek.get(rnd.nextInt(festmenyek.size())).licit();
         }
     }
 }

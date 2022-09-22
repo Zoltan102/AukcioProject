@@ -47,7 +47,7 @@ public class Festmeny {
     }
 
     public void licit() {
-        if (elkelt = true) {
+        if (elkelt == true) {
             System.out.println("A festmény már elkelt");
         } else {
             if (licitekSzama == 0) {
@@ -62,7 +62,7 @@ public class Festmeny {
     }
 
     public void licit(int mertek) {
-        if (elkelt = true) {
+        if (elkelt == true) {
             System.out.println("A festmény már elkelt");
         } else {
             if (mertek >= 10 && mertek <= 100) {
@@ -77,7 +77,7 @@ public class Festmeny {
 
     @Override
     public String toString() {
-        if (elkelt = false) {
+        if (elkelt == false) {
             return String.format("%s: %s (%s)\nelkelt\n%d $ - %tF (összesen: %d db)\n2",
                     festo, cim, stilus, legmagasabbLicit, legutolsoLicitIdeje, licitekSzama);
         } else{
