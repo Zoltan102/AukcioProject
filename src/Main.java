@@ -19,6 +19,7 @@ public class Main {
         }
         randomLicit();
         felhasznaloLicit();
+        osszesElkelt();
         for (Festmeny f : festmenyek) {
             System.out.println(f);
         }
@@ -74,7 +75,7 @@ public class Main {
                 System.out.println("Nem számot írt be.");
                 System.exit(0);
             }
-            festmenyek.get(index).eladva();
+            //festmenyek.get(index).eladva();
             if (index == -1) {
                 wantToQuit = true;
             } else if (index >= festmenyek.size()) {
@@ -94,6 +95,14 @@ public class Main {
                 } else {
                     festmenyek.get(index).licit(licit);
                 }
+            }
+        }
+    }
+
+    public static void osszesElkelt() {
+        for (Festmeny f : festmenyek) {
+            if (f.getLegmagasabbLicit() > 0) {
+                f.setElkelt(true);
             }
         }
     }
