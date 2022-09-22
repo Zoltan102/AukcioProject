@@ -67,14 +67,14 @@ public class Main {
         while (!wantToQuit) {
             System.out.println("Adja meg a festmény sorszámát: ");
             Scanner sc = new Scanner(System.in);
-            String tmp = sc.nextLine();
             int index = 0;
             try {
-                index = (Integer.parseInt(tmp) - 1);
+                index = (Integer.parseInt(sc.nextLine()) - 1);
             } catch (NumberFormatException e) {
                 System.out.println("Nem számot írt be.");
                 System.exit(0);
             }
+            festmenyek.get(index).eladva();
             if (index == -1) {
                 wantToQuit = true;
             } else if (index >= festmenyek.size()) {
@@ -82,7 +82,18 @@ public class Main {
             } else if (festmenyek.get(index).getElkelt()) {
                 System.out.println("A festmény már elkelt válasszon másikat!");
             } else {
-
+                int licit = 0;
+                try {
+                    licit = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Nem számot írt be.");
+                    System.exit(0);
+                }
+                if (licit == 0) {
+                    festmenyek.get(index).licit();
+                } else {
+                    festmenyek.get(index).licit(licit);
+                }
             }
         }
     }

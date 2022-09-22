@@ -70,8 +70,14 @@ public class Festmeny {
                 licitekSzama++;
                 legutolsoLicitIdeje = LocalDateTime.now();
             } else {
-                System.out.println("Hibás adat! Csak 10 és 100 közötti szám fogadtható el.");
+                System.out.println("Hibás adat! Csak 10 és 100 közötti szám fogadható el.");
             }
+        }
+    }
+
+    public void eladva(){
+        if(LocalDateTime.now().getMinute() - legutolsoLicitIdeje.getMinute() >= 2){
+            elkelt = true;
         }
     }
 
