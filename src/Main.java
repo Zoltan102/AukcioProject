@@ -18,6 +18,7 @@ public class Main {
             System.err.println("Hiba történt a fájl beolvasása közben!");
         }
         randomLicit();
+        felhasznaloLicit();
         for (Festmeny f : festmenyek) {
             System.out.println(f);
         }
@@ -58,6 +59,31 @@ public class Main {
         Random rnd = new Random();
         for (int i = 0; i < 20; i++) {
             festmenyek.get(rnd.nextInt(festmenyek.size())).licit();
+        }
+    }
+
+    public static void felhasznaloLicit() {
+        boolean wantToQuit = false;
+        while (!wantToQuit) {
+            System.out.println("Adja meg a festmény sorszámát: ");
+            Scanner sc = new Scanner(System.in);
+            String tmp = sc.nextLine();
+            int index = 0;
+            try {
+                index = (Integer.parseInt(tmp) - 1);
+            } catch (NumberFormatException e) {
+                System.out.println("Nem számot írt be.");
+                System.exit(0);
+            }
+            if (index == -1) {
+                wantToQuit = true;
+            } else if (index >= festmenyek.size()) {
+                System.out.println("Nem létező festmény sorszámot adtál meg. Festmények összege: " + festmenyek.size());
+            } else if (festmenyek.get(index).getElkelt()) {
+                System.out.println("A festmény már elkelt válasszon másikat!");
+            } else {
+
+            }
         }
     }
 }
